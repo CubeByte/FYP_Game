@@ -4,17 +4,30 @@ using Object = System.Object;
 public class TestInteraction : MonoBehaviour,IInteractable
 {
     public string InteractionPrompt { get; }
-    public Canvas InteractionCanvas;
-    
+    public Canvas dialogueCanvas;
     public Dialogue dialogue;
     public bool Interact(Interactor interactor)
     {
+        if (dialogueCanvas.isActiveAndEnabled == false)
+        {
+            Debug.Log("Started conversation with " + this.name);
+            OpenDialogue();
+        }
+        else
+        {
+            Debug.Log("Continued conversation with " + this.name);
+            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        }
+        return true;
+    }
+
+    void OpenDialogue()
+    {
+        dialogueCanvas.enabled = true;
+        
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         
-        InteractionCanvas.transform.position = interactor.transform.position + new Vector3(0, 0.5f, 0);
+        dialogueCanvas.transform.position = transform.position + new Vector3(0, 0.5f, 0);
         
-        Debug.Log("interacted with " + this.name);
-        
-        return true;
     }
 }

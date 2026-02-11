@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
+    public Canvas dialogueCanvas;
 
     void Start()
     {
@@ -38,12 +39,13 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         
-        string sentance = sentences.Dequeue();
-        dialogueText.text = sentance;
+        //string sentence = sentences.Dequeue();
+        dialogueText.text = sentences.Dequeue();
     }
 
     void EndDialogue()
     {
+        dialogueCanvas.enabled = false;   
         Debug.Log("Ending Dialogue");
     }
     

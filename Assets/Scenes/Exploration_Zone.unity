@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1229637166}
   nameText: {fileID: 43795513}
+  dialogueCanvas: {fileID: 1812710574}
 --- !u!4 &360190584
 Transform:
   m_ObjectHideFlags: 0
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4419bbe188546b64e9f0939d9234b72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionCanvas: {fileID: 1812710574}
+  dialogueCanvas: {fileID: 1812710574}
   dialogue: {fileID: 691866182}
 --- !u!65 &691866177
 BoxCollider:
@@ -1003,7 +1004,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812710571}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
