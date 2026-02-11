@@ -59,9 +59,15 @@ public class MapManager : MonoBehaviour
 
    void OnPartyArrivedAtEncounter(Encounter encounter)
    {
-      //mapData.currentEncounter = encounters.IndexOf(encounter);
-      GameManager.currentEnemySet = encounter.enemySet;
-      SceneManager.LoadScene("Battle");
+      if (encounter.name == "Test_Interaction")
+      {
+         SceneManager.LoadScene("Exploration_Zone");
+      }
+      else
+      {
+         GameManager.currentEnemySet = encounter.enemySet;
+         SceneManager.LoadScene("Battle");
+      }
    }
    public void LoadMenuScene()
    {

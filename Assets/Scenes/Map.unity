@@ -1195,7 +1195,7 @@ GameObject:
   - component: {fileID: 933474780}
   - component: {fileID: 933474782}
   m_Layer: 0
-  m_Name: Encountor
+  m_Name: Test_Interaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1227,7 +1227,7 @@ Transform:
   m_GameObject: {fileID: 933474779}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.13, y: 0, z: -18.17}
+  m_LocalPosition: {x: -1.77, y: 0, z: -13.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1286,10 +1286,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   party: {fileID: 617729938}
   encounters:
-  - {fileID: 933474780}
   - {fileID: 1558517444}
+  - {fileID: 933474780}
   - {fileID: 920514929}
   - {fileID: 439751332}
+  - {fileID: 1969967046}
+  - {fileID: 762925937}
+  - {fileID: 1591062237}
   mapData: {fileID: 11400000, guid: 3ac5dec174e4ab842a8016e43b4a8896, type: 2}
 --- !u!4 &943787850
 Transform:
@@ -1871,7 +1874,7 @@ Transform:
   m_GameObject: {fileID: 1558517443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.23, y: 0, z: -12.46}
+  m_LocalPosition: {x: 0.49, y: 0, z: -18.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
