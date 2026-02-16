@@ -1,8 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 
 public class DialogueLine : IEnumerable
 {
@@ -16,7 +13,7 @@ public class DialogueLine : IEnumerable
         {
                 foreach (var word in Words)
                 {
-                        if (text.Equals(word.Known) && word.IsKnown)
+                        if (text.Equals(word.English) && word.IsKnown)
                         {
                                 return true;
                         }
@@ -29,12 +26,12 @@ public class DialogueLine : IEnumerable
                 {
                         foreach (var word in Words)
                         {
-                                if (text.Equals(word.Known) && word.IsKnown)
+                                if (text.Equals(word.English) && word.IsKnown)
                                 {
-                                        return word.Known;
+                                        return word.English;
                                 }
 
-                                if (text.Equals(word.Known) && !word.IsKnown)
+                                if (text.Equals(word.English) && !word.IsKnown)
                                 {
                                         return "???";
                                 }
@@ -43,9 +40,9 @@ public class DialogueLine : IEnumerable
                 }
                 foreach (var word in Words)
                 {
-                        if (text.Equals(word.Known))
+                        if (text.Equals(word.English))
                         {
-                                return word.Unknown;
+                                return word.Polish;
                         }
                 }
                 return "";

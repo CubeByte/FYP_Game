@@ -1,13 +1,13 @@
 ﻿public class WordPair
 {
-       public string Known { get; set; }
-       public string Unknown { get; set; }
+       public string English { get; set; }
+       public string Polish { get; set; }
        public bool IsKnown { get; set; }
 
        public WordPair(string known, string unknown, bool isKnown)
        {
-              Known = known;
-              Unknown = unknown;
+              English = known;
+              Polish = unknown;
               IsKnown = isKnown;
        }
 }

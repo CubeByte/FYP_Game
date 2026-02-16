@@ -17,6 +17,7 @@ public class TestInteraction : MonoBehaviour,IInteractable
         {
             Debug.Log("Continued conversation with " + this.name);
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
+            NewScriptableObjectScript.setIsKnown("cube");
         }
         return true;
     }
