@@ -23,6 +23,16 @@ public class NewScriptableObjectScript : ScriptableObject
             new WordPair("is", "jest",true), 
             new WordPair("an", "na",false), 
             new WordPair("example", "przykład",true),
+            new WordPair("slash", "",true),
+            new WordPair("blunt", "",true),
+            new WordPair("peirce", "",true),
+            new WordPair("holy", "",true),
+            new WordPair("undead", "",true),
+            new WordPair("item", "",true),
+            new WordPair("fire", "",true),
+            new WordPair("water", "",true),
+            new WordPair("magic", "",true),
+            
         }
     );
     public static void setIsKnown(string word)
@@ -36,6 +46,16 @@ public class NewScriptableObjectScript : ScriptableObject
             }
         }
         Debug.Log(word + " is not known");
+    }
+
+    public bool WordIsKnown(string word)
+    {
+        foreach (WordPair wordPair in wordPairList)
+        {
+            if (word == wordPair.English && wordPair.IsKnown)
+                return true;
+        }
+        return false;
     }
     public void ResetWordPairList()
     {

@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public float speed;
     private Character target;
     public Archetype archetype;
+    public NewScriptableObjectScript wordList;
 
     public void Initialize(Character targetCharacter)
     {
@@ -27,7 +28,7 @@ public class Projectile : MonoBehaviour
     {
         if (damage > 0)
         {
-            if (target.weakness == archetype)
+            if (target.weakness == archetype && wordList.WordIsKnown(target.weakness.ToString()))
             {
                 var weaknessDamage = damage * 2;
                 target.TakeDamage(weaknessDamage);

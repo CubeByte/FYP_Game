@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac56eed11c898124282ed99d513879a9, type: 3}
-  m_Name: Enemy0_heal
+  m_Script: {fileID: 11500000, guid: 3878f3ecf6c2a2047b0a963d9f4bca34, type: 3}
+  m_Name: WordList
   m_EditorClassIdentifier: 
-  displayName: 
-  description: 
-  healAmount: 5
+  text: yes i added different words here this is an example

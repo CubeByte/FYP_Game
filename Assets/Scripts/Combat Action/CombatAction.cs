@@ -7,6 +7,7 @@ public abstract class CombatAction : ScriptableObject
     public string displayName;
     public string description;
     public Archetype archetype;
+    public NewScriptableObjectScript wordList;
     
     //this will never run but will be implemented by other actions
     public abstract void Cast(Character caster, Character target);

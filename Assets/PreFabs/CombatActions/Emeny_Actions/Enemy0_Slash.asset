@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3878f3ecf6c2a2047b0a963d9f4bca34, type: 3}
-  m_Name: NewScriptableObjectScript
+  m_Script: {fileID: 11500000, guid: b71c17444a7da8540850da4d2731528c, type: 3}
+  m_Name: Enemy0_Slash
   m_EditorClassIdentifier: 
-  text: yes i added different words here this is an example
+  displayName: 
+  description: 
+  archetype: 0
+  wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
+  meleeDamage: 3

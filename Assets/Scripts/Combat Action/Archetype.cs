@@ -2,14 +2,14 @@
 {
     public enum Archetype
     {
-        Slash,
-        Blunt,
-        Peirce,
-        Fire,
-        Water,
-        Magic,
-        Holy,
-        Item,
-        Undead
+        slash,
+        blunt,
+        peirce,
+        fire,
+        water,
+        magic,
+        holy,
+        item,
+        undead
     }
 }

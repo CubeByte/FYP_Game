@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d754f3f7651d7b48bc486ddf7c88d4c, type: 3}
-  m_Name: FireCube
+  m_Script: {fileID: 11500000, guid: b71c17444a7da8540850da4d2731528c, type: 3}
+  m_Name: Player_0_Slash
   m_EditorClassIdentifier: 
-  displayName: FireCube
-  description: fire a Cubic firey construct dealing 10 damage
-  projectilePrefab: {fileID: 6582982054659418159, guid: 59e67e9d1c4d27c458df1a0aabe93e4f, type: 3}
+  displayName: Slash
+  description: simple cutting attack
+  archetype: 0
+  wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
+  meleeDamage: 2

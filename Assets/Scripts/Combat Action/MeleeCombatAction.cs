@@ -14,7 +14,7 @@ public class MeleeCombatAction : CombatAction
     //deal damage to target
     void OnDamageTakenCallback(Character target)
     {
-        if (target.weakness == archetype)
+        if (target.weakness == archetype && wordList.WordIsKnown(target.weakness.ToString()))
         {
             var weaknessDamage = meleeDamage * 2;
             target.TakeDamage(weaknessDamage);

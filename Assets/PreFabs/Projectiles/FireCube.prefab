@@ -100,6 +100,7 @@ MonoBehaviour:
   heal: 0
   speed: 3
   archetype: 3
+  wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
 --- !u!1 &8735960639526931424
 GameObject:
   m_ObjectHideFlags: 0

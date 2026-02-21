@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Heal
   description: Heal for a small amount
+  archetype: 6
+  wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
   healAmount: 5
