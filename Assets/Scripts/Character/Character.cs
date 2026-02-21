@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Combat_Action;
 using Managers;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,6 +18,7 @@ public class Character : MonoBehaviour
     public string displayName;
     public int currentHP;
     public int maxHP;
+    public Archetype weakness;
     
     [Header("Character Combat Actions")]
     public CombatAction[] combatActions;
@@ -75,6 +77,8 @@ public class Character : MonoBehaviour
         {
             Die();
         }
+        
+        Debug.Log("Target took " + damage + " damage");
     }
 
     public void Heal(int heal)

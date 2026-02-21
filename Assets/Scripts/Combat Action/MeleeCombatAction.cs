@@ -14,6 +14,14 @@ public class MeleeCombatAction : CombatAction
     //deal damage to target
     void OnDamageTakenCallback(Character target)
     {
-        target.TakeDamage(meleeDamage);
+        if (target.weakness == archetype)
+        {
+            var weaknessDamage = meleeDamage * 2;
+            target.TakeDamage(weaknessDamage);
+        }
+        else
+        {
+            target.TakeDamage(meleeDamage);
+        }
     }
 }

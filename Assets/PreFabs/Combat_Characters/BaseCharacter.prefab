@@ -744,6 +744,7 @@ MonoBehaviour:
   displayName: Character
   currentHP: 10
   maxHP: 10
+  weakness: 6
   combatActions: []
   characterUI: {fileID: 6476088320132839577}
   characterSelection: {fileID: 3975627422753283532}

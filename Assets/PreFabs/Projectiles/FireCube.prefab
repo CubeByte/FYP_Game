@@ -99,6 +99,7 @@ MonoBehaviour:
   damage: 10
   heal: 0
   speed: 3
+  archetype: 3
 --- !u!1 &8735960639526931424
 GameObject:
   m_ObjectHideFlags: 0

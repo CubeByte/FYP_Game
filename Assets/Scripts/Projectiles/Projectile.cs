@@ -1,4 +1,5 @@
 using System;
+using Combat_Action;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -7,6 +8,7 @@ public class Projectile : MonoBehaviour
     public int heal;
     public float speed;
     private Character target;
+    public Archetype archetype;
 
     public void Initialize(Character targetCharacter)
     {
@@ -25,7 +27,11 @@ public class Projectile : MonoBehaviour
     {
         if (damage > 0)
         {
-            target.TakeDamage(damage);
+            if (target.weakness == archetype)
+            {
+                var weaknessDamage = damage * 2;
+                target.TakeDamage(weaknessDamage);
+            } else target.TakeDamage(damage);
         }
         if (heal > 0)
         {
