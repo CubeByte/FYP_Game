@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class TurnManager : MonoBehaviour
 {
     private List<Character> turnOrder = new List<Character>();
-    private int currentTurnOrdderIndex;
+    private int currentTurnOrderIndex;
     private Character currentTurnCharacter;
 
     [Header("Components")] public GameObject endTurnButton;
@@ -59,21 +59,21 @@ public class TurnManager : MonoBehaviour
     //can be called after button pressed, player did combat action, enemy did combat action
     public void EndTurn()
     {
-        currentTurnOrdderIndex++;
+        currentTurnOrderIndex++;
 
-        if (currentTurnOrdderIndex == turnOrder.Count)
+        if (currentTurnOrderIndex == turnOrder.Count)
         {
-            currentTurnOrdderIndex = 0;
+            currentTurnOrderIndex = 0;
         }
 
-        while (turnOrder[currentTurnOrdderIndex] == null)
+        while (turnOrder[currentTurnOrderIndex] == null)
         {
-            currentTurnOrdderIndex++;
-            if (currentTurnOrdderIndex == turnOrder.Count)
-                currentTurnOrdderIndex = 0;
+            currentTurnOrderIndex++;
+            if (currentTurnOrderIndex == turnOrder.Count)
+                currentTurnOrderIndex = 0;
         }
         
-        NewTurn(turnOrder[currentTurnOrdderIndex]);
+        NewTurn(turnOrder[currentTurnOrderIndex]);
     }
 
     public Character GetCurrentTurnCharacter()

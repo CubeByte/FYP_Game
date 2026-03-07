@@ -62,22 +62,17 @@ namespace Managers
                 {
                     Character character = CreateCharacter(playerData.characters[i].characterPrefab, playerTeamSpawns[playerSpawnIndex]);
                     character.currentHP = playerData.characters[i].health;
-                    //playerTeam[i] = character;
                     playerTeam.Add(character);
                     playerSpawnIndex++;
                 }
-                //else
-                //{
-                //    playerTeam[i] = null;
-                //}
             }
-
+            
             for (int i = 0; i < enemyTeamSet.characters.Length; i++)
             {
                 Character character = CreateCharacter(enemyTeamSet.characters[i], enemyTeamSpawns[i]);
                 enemyTeam[i] = character;
             }
-        
+            
             allCharacters.AddRange(playerTeam);
             allCharacters.AddRange(enemyTeam);
         }

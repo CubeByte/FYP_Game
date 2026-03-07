@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
     public DamageFlash damageFlash;
     
     [Header("Prefabs")]
-    public GameObject playerPrefab;
+    public NewScriptableObjectScript WordListPrefab;
     public GameObject healEffectPrefab;
     
     //initial position of current turn character
@@ -122,8 +122,18 @@ public class Character : MonoBehaviour
             
         }
     }
+
     public void ToggleCharacterSelection(bool toggle)
     {
         characterSelection.SetActive(toggle);
+
+        if (team == Team.Enemy && WordListPrefab.WordIsKnown(weakness.ToString()))
+        {
+            characterUI.UpdateCharacterWeakness(toggle, WordListPrefab.ReturnWordPair(weakness.ToString()));
+        }
+        else if (team == Team.Enemy)
+        {
+            characterUI.UpdateCharacterWeakness(toggle, "Unknown");
+        }
     }
 }

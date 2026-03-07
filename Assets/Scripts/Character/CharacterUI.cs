@@ -9,6 +9,8 @@ public class CharacterUI : MonoBehaviour
     public Image healthFill;
     public TextMeshProUGUI healthText;
     public Image turnVisual;
+    public TextMeshProUGUI weaknessText;
+    public Canvas weaknessCanvas;
 
     private void Update()
     {
@@ -29,5 +31,11 @@ public class CharacterUI : MonoBehaviour
     {
         healthText.text = $"{currentHP}/{maxHP}";
         healthFill.fillAmount = (float)currentHP / (float)maxHP;
+    }
+
+    public void UpdateCharacterWeakness(bool toggle, string weakness)
+    {
+        weaknessCanvas.gameObject.SetActive(toggle);
+        weaknessText.text = $"{weakness}";
     }
 }

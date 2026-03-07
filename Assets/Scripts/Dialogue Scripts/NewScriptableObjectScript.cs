@@ -5,36 +5,34 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewScriptableObjectScript", menuName = "Scriptable Objects/NewScriptableObjectScript")]
 public class NewScriptableObjectScript : ScriptableObject
 {
-    private static List<WordPair> wordPairList = new 
-    (new List<WordPair>
+    private static List<WordPair> wordPairList = new ()
         {
-            new WordPair("cube", "cube", false),
-            new WordPair("yes", "tak",true),
-            new WordPair("i", "ya",false),
-            new WordPair("may", "może",true),
-            new WordPair("kill", "zabić",true),
-            new WordPair("you", "cię",false),
-            new WordPair("different", "różny",true),
-            new WordPair("words", "słowa",false), 
-            new WordPair("that", "żeby",false),
-            new WordPair("added", "dodałem",true),
-            new WordPair("here", "tutaj",false),
-            new WordPair("this", "to",true),
-            new WordPair("is", "jest",true), 
-            new WordPair("an", "na",false), 
-            new WordPair("example", "przykład",true),
-            new WordPair("slash", "",true),
-            new WordPair("blunt", "",true),
-            new WordPair("peirce", "",true),
-            new WordPair("holy", "",true),
-            new WordPair("undead", "",true),
-            new WordPair("item", "",true),
-            new WordPair("fire", "",true),
-            new WordPair("water", "",true),
-            new WordPair("magic", "",true),
+            new ("cube", "cube", false),
+            new ("yes", "tak",true),
+            new ("i", "ya",false),
+            new ("may", "może",true),
+            new ("kill", "zabić",true),
+            new ("you", "cię",false),
+            new ("different", "różny",true),
+            new ("words", "słowa",false), 
+            new ("that", "żeby",false),
+            new ("added", "dodałem",true),
+            new ("here", "tutaj",false),
+            new ("this", "to",true),
+            new ("is", "jest",true), 
+            new ("an", "na",false), 
+            new ("example", "przykład",true),
+            new ("slash", "tnący",true),
+            new ("blunt", "tępy",false),
+            new ("pierce", "przebijający",true),
+            new ("holy", "święty",true),
+            new ("undead", "nieumarły",true),
+            new ("item", "przedmiot",true),
+            new ("fire", "ogień",true),
+            new ("water", "woda",true),
+            new ("magic", "magia",true),
             
-        }
-    );
+        };
     public static void setIsKnown(string word)
     {
         foreach (WordPair wordPair in wordPairList)
@@ -82,5 +80,17 @@ public class NewScriptableObjectScript : ScriptableObject
             return wordPairList[position].Polish + " is " + wordPairList[position].English;
         }
         return "???";
+    }
+
+    public string ReturnWordPair(string English)
+    {
+        foreach (var word in wordPairList)
+        {
+            if (word.English == English)
+            {
+                return word.Polish;
+            }
+        }
+        return null;
     }
 }
