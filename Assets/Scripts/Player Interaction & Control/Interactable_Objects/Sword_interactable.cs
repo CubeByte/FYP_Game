@@ -26,8 +26,8 @@ namespace Player_Interaction___Control.Interactable_Objects
             
                 if (i == x)
                 {
-                    NewScriptableObjectScript.setIsKnown("sharp");
-                    Debug.Log("learned sharp");
+                    NewScriptableObjectScript.setIsKnown("slash");
+                    Debug.Log("learned slash");
                 }
                 i++;
             }
