@@ -122,8 +122,8 @@ namespace Managers
         void PayerTeamLoss()
         {
             playerPersistantData.ResetCharacters();
-            MapManager.instance.mapData.ResetEncounter();
-            SceneManager.LoadScene("Menu");
+            //MapManager.instance.mapData.ResetEncounter();
+            SceneManager.LoadScene("Exploration_Zone");
         }
 
         void UpdatePlayerPersistantData()

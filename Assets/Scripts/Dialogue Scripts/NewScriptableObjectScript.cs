@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewScriptableObjectScript", menuName = "Scriptable Objects/NewScriptableObjectScript")]
@@ -7,31 +8,14 @@ public class NewScriptableObjectScript : ScriptableObject
 {
     private static List<WordPair> wordPairList = new ()
         {
-            new ("cube", "cube", false),
-            new ("yes", "tak",true),
-            new ("i", "ya",false),
-            new ("may", "może",true),
-            new ("kill", "zabić",true),
-            new ("you", "cię",false),
-            new ("different", "różny",true),
-            new ("words", "słowa",false), 
-            new ("that", "żeby",false),
-            new ("added", "dodałem",true),
-            new ("here", "tutaj",false),
-            new ("this", "to",true),
-            new ("is", "jest",true), 
-            new ("an", "na",false), 
-            new ("example", "przykład",true),
-            new ("slash", "tnący",true),
+            new ("slash", "tnący",false),
             new ("blunt", "tępy",false),
-            new ("pierce", "przebijający",true),
-            new ("holy", "święty",true),
-            new ("undead", "nieumarły",true),
-            new ("item", "przedmiot",true),
-            new ("fire", "ogień",true),
-            new ("water", "woda",true),
-            new ("magic", "magia",true),
-            
+            new ("pierce", "przebić",false),
+            new ("holy", "święty",false),
+            new ("death", "śmierć",false),
+            new ("fire", "ogień",false),
+            new ("water", "woda",false),
+            new ("magic", "magia",false),
         };
     public static void setIsKnown(string word)
     {
@@ -43,7 +27,6 @@ public class NewScriptableObjectScript : ScriptableObject
                 Debug.Log(wordPair.English + " is now known");
             }
         }
-        Debug.Log(word + " is not known");
     }
 
     public bool WordIsKnown(string word)
@@ -62,22 +45,15 @@ public class NewScriptableObjectScript : ScriptableObject
             wordPair.IsKnown = false;
         }
     }
-
-    public string ReturnWordPairAsList()
-    {
-        foreach (WordPair wordPair in wordPairList)
-        {
-            if (wordPair.IsKnown)
-                return wordPair.Polish + " is " + wordPair.English;
-        }
-        return "???";
-    }
-
     public string ReturnWordPairInPosition(int position)
     {
+        if (position < 0 || position >= wordPairList.Count)
+        {
+            return null;
+        }
         if (wordPairList[position].IsKnown)
         {
-            return wordPairList[position].Polish + " is " + wordPairList[position].English;
+            return "'" + wordPairList[position].Polish + "' relates to the word: " + wordPairList[position].English;
         }
         return "???";
     }

@@ -1,11 +1,15 @@
 using UnityEngine;
-using Object = System.Object;
-
-public class TestInteraction : MonoBehaviour,IInteractable
+public class Water_Interaction : MonoBehaviour, IInteractable
 {
+    
     public string InteractionPrompt { get; }
     public Canvas dialogueCanvas;
     public Dialogue dialogue;
+
+    private int i = 1;
+    private int x = 3;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     public bool Interact(Interactor interactor)
     {
         if (dialogueCanvas.isActiveAndEnabled == false)
@@ -17,11 +21,16 @@ public class TestInteraction : MonoBehaviour,IInteractable
         {
             Debug.Log("Continued conversation with " + this.name);
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
-            NewScriptableObjectScript.setIsKnown("blunt");
+            
+            if (i == x)
+            {
+                NewScriptableObjectScript.setIsKnown("water");
+                Debug.Log("learned water");
+            }
+            i++;
         }
         return true;
     }
-
     void OpenDialogue()
     {
         dialogueCanvas.enabled = true;
