@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +6,7 @@ public class CharacterControl : MonoBehaviour
     [Header("Referances")]
     private CharacterController controller;
     public InputActionReference interact;
+    private bool hasRestoredSavedPosition;
 
     [Header("Movement")] [SerializeField] private float speed = 5;
     
@@ -22,20 +22,45 @@ public class CharacterControl : MonoBehaviour
     
     private Interactor interaction;
 
-    private void Start()
-    {
-        controller = GetComponent<CharacterController>();
-    }
-
     private void Awake()
     {
+        controller = GetComponent<CharacterController>();
         interaction = GetComponent<Interactor>();
+
+        if (controller == null)
+        {
+            Debug.LogError($"CharacterController is missing on {name}.", this);
+            enabled = false;
+        }
+    }
+
+    private void Start()
+    {
+        RestoreSavedPositionIfNeeded();
     }
 
     private void Update()
     {
+        if (controller == null)
+        {
+            return;
+        }
+
         InputManagement();
         Movement();
+    }
+
+    private void RestoreSavedPositionIfNeeded()
+    {
+        if (hasRestoredSavedPosition || !ExplorationPlayerState.HasSavedTransform)
+        {
+            return;
+        }
+
+        controller.enabled = false;
+        ExplorationPlayerState.Restore(transform);
+        controller.enabled = true;
+        hasRestoredSavedPosition = true;
     }
 
     private void Interact(InputAction.CallbackContext context)
@@ -75,11 +100,17 @@ public class CharacterControl : MonoBehaviour
 
     private void OnEnable()
     {
-        interact.action.started += Interact;
+        if (interact != null)
+        {
+            interact.action.started += Interact;
+        }
     }
     
     private void OnDisable()
     {
-        interact.action.started -= Interact;
+        if (interact != null)
+        {
+            interact.action.started -= Interact;
+        }
     }
 }

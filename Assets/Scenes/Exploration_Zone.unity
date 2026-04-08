@@ -439,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueCanvas: {fileID: 1812710574}
   dialogue: {fileID: 202156707}
+  playerObject: {fileID: 1207711169}
 --- !u!1 &213199221
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueCanvas: {fileID: 1812710574}
   dialogue: {fileID: 303703270}
+  playerObject: {fileID: 1207711169}
 --- !u!1001 &351624386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4145,6 +4147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff61e5b98a485b409d1028e92a678e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleSceneName: Battle
 --- !u!1 &2096104727
 GameObject:
   m_ObjectHideFlags: 0

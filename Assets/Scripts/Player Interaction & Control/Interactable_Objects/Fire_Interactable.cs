@@ -8,6 +8,7 @@ namespace Player_Interaction___Control.Interactable_Objects
         public string InteractionPrompt { get; }
         public Canvas dialogueCanvas;
         public Dialogue dialogue;
+        public GameObject playerObject;
 
         private int i = 1;
         private int x = 3;
@@ -29,6 +30,8 @@ namespace Player_Interaction___Control.Interactable_Objects
                 {
                     NewScriptableObjectScript.setIsKnown("fire");
                     Debug.Log("learned fire");
+                    ExplorationPlayerState.Save(playerObject.transform);
+                    Go_To_Battle_Interaction.LoadBattleFor(interactor, "Second_Encounter");
                 }
                 i++;
             }

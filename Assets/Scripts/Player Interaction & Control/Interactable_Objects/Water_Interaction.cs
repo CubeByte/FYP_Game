@@ -5,6 +5,7 @@ public class Water_Interaction : MonoBehaviour, IInteractable
     public string InteractionPrompt { get; }
     public Canvas dialogueCanvas;
     public Dialogue dialogue;
+    public GameObject playerObject;
 
     private int i = 1;
     private int x = 3;
@@ -26,6 +27,8 @@ public class Water_Interaction : MonoBehaviour, IInteractable
             {
                 NewScriptableObjectScript.setIsKnown("water");
                 Debug.Log("learned water");
+                ExplorationPlayerState.Save(playerObject.transform);
+                Go_To_Battle_Interaction.LoadBattleFor(interactor, "First_Encounter");
             }
             i++;
         }
