@@ -5,10 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6aec12f7-e834-402d-95ac-6dda44051068" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Character/FaceCamera.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Character/FaceCamera.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Interaction &amp; Control/CharacterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Interaction &amp; Control/CharacterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Interaction &amp; Control/Interactable_Objects/Go_To_Battle_Interaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Interaction &amp; Control/Interactable_Objects/Go_To_Battle_Interaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Interaction &amp; Control/Interactable_Objects/Water_Interaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Interaction &amp; Control/Interactable_Objects/Water_Interaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Bush_2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Dirt_Path_Basecolor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Dirt_Path_Basecolor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Dirt_Tile.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Dirt_Tile.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_Leaf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_Leaf.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_hd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_hd.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_leaf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_leaf.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_leaf_1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_leaf_1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_leaf_2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Fern_tree_leaf_2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaf.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaf.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaf.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaves.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaves.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Leaves.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Bush_2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Bush_2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Fern_tree_hd.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Fern_tree_hd.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Leaves.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Leaves.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Stump.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Materials/Stump.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Second_Test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Second_Test.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Stump.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Stump.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Stump.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Stump.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Tile_Set_1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Materials/Tile_Set_1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/PreFabs/Combat_Characters/EnemyCharacters/BossCube Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/PreFabs/Combat_Characters/EnemyCharacters/BossCube Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Second_Encounter.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Second_Encounter.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/DamageFlash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/DamageFlash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +71,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="23686" />
+    <option name="cachedIndexableFilesCount" value="24629" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,6 +129,7 @@
       <updated>1775629567117</updated>
       <workItem from="1775629568212" duration="729000" />
       <workItem from="1775650747468" duration="1095000" />
+      <workItem from="1775732840481" duration="1632000" />
     </task>
     <servers />
   </component>

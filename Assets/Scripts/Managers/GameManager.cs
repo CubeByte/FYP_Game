@@ -116,7 +116,7 @@ namespace Managers
         void PayerTeamWins()
         {
             UpdatePlayerPersistantData();
-            Invoke(nameof(LoadMapScene), 0.5f);
+            SceneManager.LoadScene("Exploration_Zone");
         }
 
         void PayerTeamLoss()
