@@ -12,6 +12,10 @@ public class Go_To_Battle_Interaction : MonoBehaviour, IInteractable
         return true;
     }
 
+    public void ResetInteraction()
+    {
+    }
+
     public void LoadBattle(Interactor interactor)
     {
         LoadBattle(interactor, battleSceneName);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8137862534916821642}
   - component: {fileID: 2806650955173785713}
   m_Layer: 0
-  m_Name: FireCube
+  m_Name: Water_Splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21875df2b71cb5d42a5ead35c77e6562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
   heal: 0
   speed: 3
-  archetype: 3
+  archetype: 4
   wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
 --- !u!1 &8735960639526931424
 GameObject:
@@ -327,8 +327,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 0.38648486, b: 0.042452812, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.3146516, b: 0, a: 1}
-        key1: {r: 0.9622642, g: 0.8020145, b: 0.31318974, a: 0.8784314}
+        key0: {r: 0, g: 0.13710785, b: 1, a: 1}
+        key1: {r: 0.31372544, g: 0.8769076, b: 0.9607843, a: 0.8784314}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4998,7 +4998,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 01c8d05a9c8e2b64ea5bf02b62cea6cc, type: 2}
+  - {fileID: 2100000, guid: 745265e86a1a1df448036d3b7d5c703c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

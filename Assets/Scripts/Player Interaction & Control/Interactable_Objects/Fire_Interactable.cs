@@ -10,8 +10,9 @@ namespace Player_Interaction___Control.Interactable_Objects
         public Dialogue dialogue;
         public GameObject playerObject;
 
-        private int i = 1;
-        private int x = 3;
+        private const int InitialStep = 1;
+        private const int LearnStep = 3;
+        private int interactionStep = InitialStep;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
     
         public bool Interact(Interactor interactor)
@@ -26,17 +27,28 @@ namespace Player_Interaction___Control.Interactable_Objects
                 Debug.Log("Continued conversation with " + this.name);
                 FindObjectOfType<DialogueManager>().DisplayNextSentence();
             
-                if (i == x)
+                if (interactionStep == LearnStep)
                 {
                     NewScriptableObjectScript.setIsKnown("fire");
                     Debug.Log("learned fire");
                     ExplorationPlayerState.Save(playerObject.transform);
                     Go_To_Battle_Interaction.LoadBattleFor(interactor, "Second_Encounter");
                 }
-                i++;
+                interactionStep++;
             }
             return true;
         }
+
+        public void ResetInteraction()
+        {
+            interactionStep = InitialStep;
+
+            if (dialogueCanvas != null)
+            {
+                dialogueCanvas.enabled = false;
+            }
+        }
+
         void OpenDialogue()
         {
             dialogueCanvas.enabled = true;

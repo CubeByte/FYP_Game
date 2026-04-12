@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     private Character target;
     public Archetype archetype;
     public NewScriptableObjectScript wordList;
+    public bool spin = false;
 
     public void Initialize(Character targetCharacter)
     {
@@ -21,6 +22,11 @@ public class Projectile : MonoBehaviour
         if (target != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position + new Vector3(0,0.5f,0), speed * Time.deltaTime);
+            if (spin)
+            {
+                transform.Rotate(new Vector3(0, 0, 30), -180 * Time.deltaTime);
+            }
+            
         }
     }
 

@@ -6,6 +6,9 @@ public class TestInteraction : MonoBehaviour,IInteractable
     public string InteractionPrompt { get; }
     public Canvas dialogueCanvas;
     public Dialogue dialogue;
+    private const int InitialStep = 1;
+    private int interactionStep = InitialStep;
+
     public bool Interact(Interactor interactor)
     {
         if (dialogueCanvas.isActiveAndEnabled == false)
@@ -17,9 +20,25 @@ public class TestInteraction : MonoBehaviour,IInteractable
         {
             Debug.Log("Continued conversation with " + this.name);
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
-            NewScriptableObjectScript.setIsKnown("blunt");
+
+            if (interactionStep == InitialStep)
+            {
+                NewScriptableObjectScript.setIsKnown("blunt");
+            }
+
+            interactionStep++;
         }
         return true;
+    }
+
+    public void ResetInteraction()
+    {
+        interactionStep = InitialStep;
+
+        if (dialogueCanvas != null)
+        {
+            dialogueCanvas.enabled = false;
+        }
     }
 
     void OpenDialogue()

@@ -15,13 +15,21 @@ public class Interactor : MonoBehaviour
     private bool interacted = false;
 
     private IInteractable interactable;
+
     private void Update()
     {
         numberFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactRadius, colliders, interactableLayer);
 
         if (numberFound > 0)
         {
-            interactable = colliders[0].GetComponent<IInteractable>();
+            IInteractable nextInteractable = colliders[0].GetComponent<IInteractable>();
+
+            if (interactable != null && interactable != nextInteractable)
+            {
+                interactable.ResetInteraction();
+            }
+
+            interactable = nextInteractable;
 
             if (interactable != null)
             {
@@ -33,7 +41,11 @@ public class Interactor : MonoBehaviour
         }
         else
         {
-            if(interactable != null) interactable = null;
+            if(interactable != null)
+            {
+                interactable.ResetInteraction();
+                interactable = null;
+            }
             if (interactPromptUI.isDisplayed) interactPromptUI.Close();
             interacted = false;
         }
