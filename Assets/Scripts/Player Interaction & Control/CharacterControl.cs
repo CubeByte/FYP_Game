@@ -143,12 +143,24 @@ public class CharacterControl : MonoBehaviour
     {
         previousState = currentState;
 
+        // Horizontal movement takes priority first
         if (moveInput < -0.01f)
         {
             currentState = MovementState.Left;
             Light.SetActive(false);
         }
         else if (moveInput > 0.01f)
+        {
+            currentState = MovementState.Right;
+            Light.SetActive(false);
+        }
+        // Only check vertical if there is no horizontal movement
+        else if (turnInput > 0.01f)
+        {
+            currentState = MovementState.Left;
+            Light.SetActive(false);
+        }
+        else if (turnInput < -0.01f)
         {
             currentState = MovementState.Right;
             Light.SetActive(false);

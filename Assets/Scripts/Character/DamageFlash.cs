@@ -6,15 +6,18 @@ public class DamageFlash : MonoBehaviour
     [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private float flashDuration = 0.2f;
 
-    private Material[] emissionMaterials;
     private SpriteRenderer[] spriteRenderers;
     private Color[] spriteBaseColors;
+
+    private Renderer[] meshRenderers;
+    private Material[] meshMaterials;
+    private Color[] meshBaseColors;
+    private string[] meshColorProperties;
+
     private Coroutine activeFlash;
 
-    void Awake()
+    private void Awake()
     {
-        Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
-        emissionMaterials = CollectEmissionMaterials(renderers);
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
         spriteBaseColors = new Color[spriteRenderers.Length];
 
@@ -22,6 +25,8 @@ public class DamageFlash : MonoBehaviour
         {
             spriteBaseColors[i] = spriteRenderers[i].color;
         }
+
+        CollectMeshRenderersAndMaterials();
     }
 
     public void Flash()
@@ -37,8 +42,8 @@ public class DamageFlash : MonoBehaviour
 
     private IEnumerator FlashCoroutine()
     {
-        SetMeshEmission(flashColor);
-        SetSpriteColors(flashColor);
+        SetSpriteColors();
+        SetMeshColors();
 
         yield return new WaitForSeconds(flashDuration);
 
@@ -48,25 +53,22 @@ public class DamageFlash : MonoBehaviour
 
     private void ResetFlash()
     {
-        SetMeshEmission(Color.black);
         ResetSpriteColors();
+        ResetMeshColors();
     }
 
-    private void SetMeshEmission(Color color)
-    {
-        for (int i = 0; i < emissionMaterials.Length; i++)
-        {
-            Material material = emissionMaterials[i];
-            material.EnableKeyword("_EMISSION");
-            material.SetColor("_EmissionColor", color);
-        }
-    }
-
-    private void SetSpriteColors(Color color)
+    private void SetSpriteColors()
     {
         for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            spriteRenderers[i].color = color;
+            Color baseColor = spriteBaseColors[i];
+
+            spriteRenderers[i].color = new Color(
+                flashColor.r,
+                flashColor.g,
+                flashColor.b,
+                baseColor.a
+            );
         }
     }
 
@@ -78,34 +80,95 @@ public class DamageFlash : MonoBehaviour
         }
     }
 
-    private Material[] CollectEmissionMaterials(Renderer[] renderers)
+    private void SetMeshColors()
     {
-        int materialCount = 0;
-
-        for (int i = 0; i < renderers.Length; i++)
+        for (int i = 0; i < meshMaterials.Length; i++)
         {
-            if (renderers[i] is SpriteRenderer)
+            Material material = meshMaterials[i];
+            string colorProperty = meshColorProperties[i];
+
+            if (material == null || string.IsNullOrEmpty(colorProperty))
             {
                 continue;
             }
 
-            materialCount++;
+            Color baseColor = meshBaseColors[i];
+
+            material.SetColor(colorProperty, new Color(
+                flashColor.r,
+                flashColor.g,
+                flashColor.b,
+                baseColor.a
+            ));
         }
+    }
 
-        Material[] materials = new Material[materialCount];
-        int materialIndex = 0;
-
-        for (int i = 0; i < renderers.Length; i++)
+    private void ResetMeshColors()
+    {
+        for (int i = 0; i < meshMaterials.Length; i++)
         {
-            if (renderers[i] is SpriteRenderer)
+            Material material = meshMaterials[i];
+            string colorProperty = meshColorProperties[i];
+
+            if (material == null || string.IsNullOrEmpty(colorProperty))
             {
                 continue;
             }
 
-            materials[materialIndex] = renderers[i].material;
-            materialIndex++;
+            material.SetColor(colorProperty, meshBaseColors[i]);
+        }
+    }
+
+    private void CollectMeshRenderersAndMaterials()
+    {
+        Renderer[] allRenderers = GetComponentsInChildren<Renderer>(true);
+
+        int count = 0;
+        for (int i = 0; i < allRenderers.Length; i++)
+        {
+            if (!(allRenderers[i] is SpriteRenderer))
+            {
+                count++;
+            }
         }
 
-        return materials;
+        meshRenderers = new Renderer[count];
+        meshMaterials = new Material[count];
+        meshBaseColors = new Color[count];
+        meshColorProperties = new string[count];
+
+        int index = 0;
+        for (int i = 0; i < allRenderers.Length; i++)
+        {
+            if (allRenderers[i] is SpriteRenderer)
+            {
+                continue;
+            }
+
+            Renderer renderer = allRenderers[i];
+            Material material = renderer.material;
+
+            meshRenderers[index] = renderer;
+            meshMaterials[index] = material;
+
+            if (material.HasProperty("_BaseColor"))
+            {
+                meshColorProperties[index] = "_BaseColor";
+                meshBaseColors[index] = material.GetColor("_BaseColor");
+            }
+            else if (material.HasProperty("_Color"))
+            {
+                meshColorProperties[index] = "_Color";
+                meshBaseColors[index] = material.GetColor("_Color");
+            }
+            else
+            {
+                meshColorProperties[index] = null;
+                meshBaseColors[index] = Color.white;
+                Debug.LogWarning($"Material on {renderer.name} has no _BaseColor or _Color property.", renderer);
+            }
+
+            index++;
+        }
     }
 }
