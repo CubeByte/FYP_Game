@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Combat_Action;
 using CharacterData;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,9 +24,11 @@ namespace Managers
         public static GameManager instance;
         public static CharacterSet currentEnemySet;
         public MapData mapData;
+        public Scene currentScene;
 
         void Awake()
         {
+            currentScene = SceneManager.GetActiveScene();
             if (instance != null && instance != this)
             {
                 Destroy(gameObject);
@@ -38,14 +41,16 @@ namespace Managers
 
         void Start()
         {
+            currentScene = SceneManager.GetActiveScene();
             if (currentEnemySet == null)
             {
-                CreateCharacters(playerPersistantData,defaultEnemySet);
+                CreateCharacters(playerPersistantData, defaultEnemySet);
             }
             else
             {
-                CreateCharacters(playerPersistantData,currentEnemySet);
+                CreateCharacters(playerPersistantData, currentEnemySet);
             }
+
             TurnManager.instance.Begin();
         }
 
@@ -53,6 +58,7 @@ namespace Managers
         {
             playerTeam = new List<Character>();
             enemyTeam = new Character[enemyTeamSet.characters.Length];
+            allCharacters.Clear();
 
             int playerSpawnIndex = 0;
 
@@ -60,8 +66,15 @@ namespace Managers
             {
                 if (!playerData.characters[i].isDead)
                 {
-                    Character character = CreateCharacter(playerData.characters[i].characterPrefab, playerTeamSpawns[playerSpawnIndex]);
+                    GameObject prefab = playerData.characters[i].characterPrefab;
+                    Character character = CreateCharacter(prefab, playerTeamSpawns[playerSpawnIndex]);
+
+                    character.persistentIndex = i;
                     character.currentHP = playerData.characters[i].health;
+                    character.combatActions = playerData.characters[i].combatActions != null
+                        ? (CombatAction[])playerData.characters[i].combatActions.Clone()
+                        : new CombatAction[0];
+
                     playerTeam.Add(character);
                     playerSpawnIndex++;
                 }
@@ -101,6 +114,7 @@ namespace Managers
                     enemiesRemaining++;
                 }
             }
+
             if (enemiesRemaining == 0)
             {
                 PayerTeamWins();
@@ -112,31 +126,61 @@ namespace Managers
             }
         }
 
-        //update player data
         void PayerTeamWins()
         {
             UpdatePlayerPersistantData();
-            SceneManager.LoadScene("Exploration_Zone");
+            Transition.Instance.LoadSceneWithFade("Exploration_Zone");
         }
 
         void PayerTeamLoss()
         {
+            MarkDeadPlayers();
             playerPersistantData.ResetCharacters();
-            //MapManager.instance.mapData.ResetEncounter();
-            SceneManager.LoadScene("Exploration_Zone");
+
+            if (currentScene.name == "Battle")
+            {
+                Transition.Instance.LoadSceneWithFade("Exploration_Zone");
+            }
+            else
+            {
+                Transition.Instance.LoadSceneWithFade("Game_Over");
+            }
         }
 
         void UpdatePlayerPersistantData()
         {
-            for(int i = 0; i < playerTeam.Count; i++)
+            for (int i = 0; i < playerPersistantData.characters.Length; i++)
             {
-                if (playerTeam[i] != null)
+                playerPersistantData.characters[i].isDead = true;
+            }
+
+            for (int i = 0; i < playerTeam.Count; i++)
+            {
+                if (playerTeam[i] != null && playerTeam[i].persistentIndex >= 0)
                 {
-                    playerPersistantData.characters[i].health = playerTeam[i].currentHP;
+                    int index = playerTeam[i].persistentIndex;
+
+                    playerPersistantData.characters[index].health = playerTeam[i].currentHP;
+                    playerPersistantData.characters[index].isDead = false;
+                    playerPersistantData.characters[index].combatActions = playerTeam[i].combatActions != null
+                        ? (CombatAction[])playerTeam[i].combatActions.Clone()
+                        : new CombatAction[0];
                 }
-                else
+            }
+        }
+
+        void MarkDeadPlayers()
+        {
+            for (int i = 0; i < playerPersistantData.characters.Length; i++)
+            {
+                playerPersistantData.characters[i].isDead = true;
+            }
+
+            for (int i = 0; i < playerTeam.Count; i++)
+            {
+                if (playerTeam[i] != null && playerTeam[i].persistentIndex >= 0)
                 {
-                    playerPersistantData.characters[i].isDead = true;
+                    playerPersistantData.characters[playerTeam[i].persistentIndex].isDead = false;
                 }
             }
         }
@@ -151,7 +195,7 @@ namespace Managers
         {
             playerPersistantData.ResetCharacters();
             MapManager.instance.mapData.ResetEncounter();
-            SceneManager.LoadScene("Menu");
+            Transition.Instance.LoadSceneWithFade("Menu");
         }
     }
 }

@@ -1,39 +1,60 @@
+using CharacterData;
+using Combat_Action;
 using UnityEngine;
+
 public class Water_Interaction : MonoBehaviour, IInteractable
 {
-    
     public string InteractionPrompt { get; }
     public Canvas dialogueCanvas;
     public Dialogue dialogue;
     public GameObject playerObject;
 
+    [Header("Player Data")]
+    public PlayerPersistantData playerPersistantData;
+    public int targetPlayerIndex = 0;
+    public int replaceActionSlot = 0;
+
+    [Header("Action Asset")]
+    public CombatAction waterAction;
+
     private const int InitialStep = 1;
-    private const int LearnStep = 3;
+    private const int LearnStep = 5;
     private int interactionStep = InitialStep;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     public bool Interact(Interactor interactor)
     {
-        if (dialogueCanvas.isActiveAndEnabled == false)
+        if (!dialogueCanvas.isActiveAndEnabled)
         {
-            Debug.Log("Started conversation with " + this.name);
             OpenDialogue();
         }
         else
         {
-            Debug.Log("Continued conversation with " + this.name);
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
             
             if (interactionStep == LearnStep)
             {
                 NewScriptableObjectScript.setIsKnown("water");
-                Debug.Log("learned water");
+                
+                GiveWaterActionToPlayer();
+                
                 ExplorationPlayerState.Save(playerObject.transform);
                 Go_To_Battle_Interaction.LoadBattleFor(interactor, "First_Encounter");
             }
+
             interactionStep++;
         }
+
         return true;
+    }
+
+    void GiveWaterActionToPlayer()
+    {
+        CombatAction[] actions = playerPersistantData.characters[targetPlayerIndex].combatActions;
+
+        if (actions != null && replaceActionSlot >= 0 && replaceActionSlot < actions.Length)
+        {
+            actions[replaceActionSlot] = waterAction;
+        }
     }
 
     public void ResetInteraction()
@@ -51,6 +72,5 @@ public class Water_Interaction : MonoBehaviour, IInteractable
         dialogueCanvas.enabled = true;
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         dialogueCanvas.transform.position = transform.position + new Vector3(0, 1f, 0);
-        
     }
 }

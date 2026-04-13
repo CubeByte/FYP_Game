@@ -1,3 +1,4 @@
+using Combat_Action;
 using UnityEngine;
 
 namespace CharacterData
@@ -8,20 +9,41 @@ namespace CharacterData
         public PlayerPersistantCharacter[] characters;
 
 #if UNITY_EDITOR
-    
         void OnValidate()
         {
             ResetCharacters();
         }
-    
 #endif
-    
+
         public void ResetCharacters()
         {
+            if (characters == null)
+                return;
+
             for (int i = 0; i < characters.Length; i++)
             {
-                characters[i].health = characters[i].characterPrefab.GetComponent<Character>().maxHP;
+                if (characters[i] == null)
+                    continue;
+
+                if (characters[i].characterPrefab == null)
+                {
+                    Debug.LogWarning($"PlayerPersistantData: characters[{i}] has no characterPrefab assigned.", this);
+                    continue;
+                }
+
+                Character prefabCharacter = characters[i].characterPrefab.GetComponent<Character>();
+
+                if (prefabCharacter == null)
+                {
+                    Debug.LogWarning($"PlayerPersistantData: characterPrefab on slot {i} has no Character component.", this);
+                    continue;
+                }
+
+                characters[i].health = prefabCharacter.maxHP;
                 characters[i].isDead = false;
+                characters[i].combatActions = prefabCharacter.combatActions != null
+                    ? (CombatAction[])prefabCharacter.combatActions.Clone()
+                    : new CombatAction[0];
             }
         }
     }

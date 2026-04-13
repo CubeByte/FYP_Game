@@ -8,6 +8,7 @@ public class NewScriptableObjectScript : ScriptableObject
 {
     private static List<WordPair> wordPairList = new ()
         {
+            new ("heal", "leczyć",false),
             new ("slash", "tnący",false),
             new ("blunt", "tępy",false),
             new ("pierce", "przebić",false),

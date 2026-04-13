@@ -40,7 +40,7 @@ public class CombatActionUI : MonoBehaviour
 
         for (int i = 0; i < buttons.Length; i++)
         {
-            if (i < character.combatActions.Length)
+            if (i < character.combatActions.Length && character.combatActions[i].displayName != "empty" )
             {
                 buttons[i].gameObject.SetActive(true);
                 buttons[i].SetCombatAction(character.combatActions[i]);

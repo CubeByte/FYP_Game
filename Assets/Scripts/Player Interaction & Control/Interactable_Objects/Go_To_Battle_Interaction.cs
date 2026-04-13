@@ -30,7 +30,7 @@ public class Go_To_Battle_Interaction : MonoBehaviour, IInteractable
         }
 
         ExplorationPlayerState.Save(interactor.transform);
-        SceneManager.LoadScene(sceneName);
+        Transition.Instance.LoadSceneWithFade(sceneName);
     }
 
     public static void LoadBattleFor(Interactor interactor, string sceneName = "Battle")
@@ -42,6 +42,6 @@ public class Go_To_Battle_Interaction : MonoBehaviour, IInteractable
         }
 
         ExplorationPlayerState.Save(interactor.transform);
-        SceneManager.LoadScene(sceneName);
+        Transition.Instance.LoadSceneWithFade(sceneName);
     }
 }

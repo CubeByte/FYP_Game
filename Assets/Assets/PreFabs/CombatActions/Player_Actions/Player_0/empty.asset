@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d754f3f7651d7b48bc486ddf7c88d4c, type: 3}
-  m_Name: Ranged Combat Action
+  m_Script: {fileID: 11500000, guid: ac56eed11c898124282ed99d513879a9, type: 3}
+  m_Name: empty
   m_EditorClassIdentifier: 
-  displayName: Water Splash
-  description: Throw a handfull of water
-  archetype: 4
+  displayName: empty
+  description: empty
+  archetype: 6
   wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
-  projectilePrefab: {fileID: 6582982054659418159, guid: 330a5c72a6926e94bad21131a506e484, type: 3}
+  healAmount: 0

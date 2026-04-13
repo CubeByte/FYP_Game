@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
 public class Book : MonoBehaviour
 {

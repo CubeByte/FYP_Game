@@ -19,6 +19,9 @@ public class Character : MonoBehaviour
     public int currentHP;
     public int maxHP;
     public Archetype weakness;
+
+    [Header("Persistent Mapping")]
+    public int persistentIndex = -1;
     
     [Header("Character Combat Actions")]
     public CombatAction[] combatActions;
@@ -32,7 +35,6 @@ public class Character : MonoBehaviour
     public NewScriptableObjectScript WordListPrefab;
     public GameObject healEffectPrefab;
     
-    //initial position of current turn character
     private Vector3 characterPosition;
 
     void OnEnable()
@@ -119,7 +121,6 @@ public class Character : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, characterPosition, 10 *Time.deltaTime);
                 yield return null;
             }
-            
         }
     }
 

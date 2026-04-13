@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/Menu/Menu.unity
     guid: 1cf50fadfcb057545ac6e1d0bae662b8
   - enabled: 1
     path: Assets/Scenes/Battle/Battle.unity
@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Exploration_Zone/Exploration_Zone.unity
     guid: c97e4d8def4fceb44b73104ed4c3c849
   - enabled: 1
-    path: Assets/Scenes/First_Encounter/First_Encounter.unity
+    path: Assets/Scenes/Pond/First_Encounter.unity
     guid: 97348a11a0e3667459f1369f3c698d7b
   - enabled: 1
-    path: Assets/Scenes/Second_Encounter/Second_Encounter.unity
+    path: Assets/Scenes/CampFire/Second_Encounter.unity
     guid: 76a099ea41b61504e8dc2da0fc53f384
   - enabled: 1
     path: Assets/Scenes/Training_Encounter/Training_Encounter.unity

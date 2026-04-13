@@ -9,7 +9,7 @@ namespace Player_Interaction___Control.Interactable_Objects
         public Dialogue dialogue;
 
         private const int InitialStep = 1;
-        private const int LearnStep = 3;
+        private const int LearnStep = 4;
         private int interactionStep = InitialStep;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
     

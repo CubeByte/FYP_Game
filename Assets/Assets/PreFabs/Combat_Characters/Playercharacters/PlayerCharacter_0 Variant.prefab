@@ -359,8 +359,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4221735950900703196}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: persistentIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: combatActions.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: 'combatActions.Array.data[0]'
@@ -373,11 +377,11 @@ PrefabInstance:
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: 'combatActions.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: e99cdd5583cb6ce4f9bb3dc1dbe2c9ff, type: 2}
+      objectReference: {fileID: 11400000, guid: 67286dd0776a2734a9188cbe5388038a, type: 2}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: 'combatActions.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3a8d01b32d1a8e245b1417ef35aa679d, type: 2}
+      objectReference: {fileID: 11400000, guid: 67286dd0776a2734a9188cbe5388038a, type: 2}
     - target: {fileID: 6720062076599212056, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

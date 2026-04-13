@@ -11,9 +11,8 @@ namespace Player_Interaction___Control.Interactable_Objects
         public GameObject playerObject;
 
         private const int InitialStep = 1;
-        private const int LearnStep = 4;
+        private const int LearnStep = 5;
         private int interactionStep = InitialStep;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
     
         public bool Interact(Interactor interactor)
         {
@@ -31,7 +30,9 @@ namespace Player_Interaction___Control.Interactable_Objects
                 {
                     NewScriptableObjectScript.setIsKnown("pierce");
                     Debug.Log("learned pierce");
+                    
                     ExplorationPlayerState.Save(playerObject.transform);
+                    
                     Go_To_Battle_Interaction.LoadBattleFor(interactor, "Training_encounter");
                 }
                 interactionStep++;

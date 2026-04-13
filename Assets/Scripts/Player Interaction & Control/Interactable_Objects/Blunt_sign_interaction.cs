@@ -12,7 +12,6 @@ namespace Player_Interaction___Control.Interactable_Objects
         private const int InitialStep = 1;
         private const int LearnStep = 4;
         private int interactionStep = InitialStep;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
     
         public bool Interact(Interactor interactor)
         {

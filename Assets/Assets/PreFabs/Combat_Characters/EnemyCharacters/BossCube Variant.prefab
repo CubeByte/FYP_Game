@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00f19a7d709418cb85e44948466a2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoSwapSprites: 1
+  alternateSprite: {fileID: 21300000, guid: e66bda890fb630344af695e99d9aaebc, type: 3}
+  spriteSwapInterval: 0.3
 --- !u!1001 &2992154191183209694
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Battle");
+        Transition.Instance.LoadSceneWithMessage("Battle", "You get woken up by strange noises...");
     }
 
     public void QuitGame()
