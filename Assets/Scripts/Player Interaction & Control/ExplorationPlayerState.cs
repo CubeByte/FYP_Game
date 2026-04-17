@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public static class ExplorationPlayerState
 {
     private static Vector3 savedPosition;
@@ -9,6 +8,9 @@ public static class ExplorationPlayerState
 
     public static void Save(Transform playerTransform)
     {
+        if (playerTransform == null)
+            return;
+
         savedPosition = playerTransform.position;
         savedRotation = playerTransform.rotation;
         HasSavedTransform = true;
@@ -16,12 +18,19 @@ public static class ExplorationPlayerState
 
     public static void Restore(Transform playerTransform)
     {
-        if (!HasSavedTransform)
+        if (!HasSavedTransform || playerTransform == null)
         {
             return;
         }
 
         playerTransform.SetPositionAndRotation(savedPosition, savedRotation);
+        HasSavedTransform = false;
+    }
+
+    public static void Clear()
+    {
+        savedPosition = Vector3.zero;
+        savedRotation = Quaternion.identity;
         HasSavedTransform = false;
     }
 }

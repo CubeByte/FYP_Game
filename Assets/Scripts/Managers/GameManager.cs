@@ -139,15 +139,14 @@ namespace Managers
             UpdatePlayerPersistantData();
             Transition.Instance.LoadSceneWithFade("Exploration_Zone");
         }
-
         void PayerTeamLoss()
         {
-            MarkDeadPlayers();
             playerPersistantData.ResetCharacters();
+            ExplorationPlayerState.Clear();
 
             if (currentScene.name == "Battle")
             {
-                Transition.Instance.LoadSceneWithMessage("Exploration_Zone","Your first loss, you fall down the cliff...");
+                Transition.Instance.LoadSceneWithMessage("Exploration_Zone","You fall in the battle and down the cliff");
             }
             else
             {

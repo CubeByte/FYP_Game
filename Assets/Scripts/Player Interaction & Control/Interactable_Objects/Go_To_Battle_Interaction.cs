@@ -4,21 +4,15 @@ using UnityEngine.SceneManagement;
 public class Go_To_Battle_Interaction : MonoBehaviour, IInteractable
 {
     public string InteractionPrompt { get; }
-    [SerializeField] private string battleSceneName = "Battle";
 
     public bool Interact(Interactor interactor)
     {
-        LoadBattle(interactor);
+        LoadBattleFor(interactor, "Final_Battle", "You climb back from whence you fell");
         return true;
     }
 
     public void ResetInteraction()
     {
-    }
-
-    public void LoadBattle(Interactor interactor)
-    {
-        LoadBattleFor(interactor, battleSceneName);
     }
 
     public static void LoadBattleFor(Interactor interactor, string sceneName, string text)
@@ -30,7 +24,7 @@ public class Go_To_Battle_Interaction : MonoBehaviour, IInteractable
         }
 
         ExplorationPlayerState.Save(interactor.transform);
-        Transition.Instance.LoadSceneWithMessage(sceneName, "You climb back to face the monsters...");
+        Transition.Instance.LoadSceneWithMessage(sceneName, text);
     }
 
     public static void LoadBattleFor(Interactor interactor, string sceneName = "Battle")

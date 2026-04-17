@@ -8,6 +8,7 @@ public class CharacterControl : MonoBehaviour
     public InputActionReference interact;
     private bool hasRestoredSavedPosition;
     public GameObject Light;
+    public GameObject Light2;
     
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
@@ -147,28 +148,33 @@ public class CharacterControl : MonoBehaviour
         if (moveInput < -0.01f)
         {
             currentState = MovementState.Left;
-            Light.SetActive(false);
+            Light.SetActive(true);
+            Light2.SetActive(false);
         }
         else if (moveInput > 0.01f)
         {
             currentState = MovementState.Right;
+            Light2.SetActive(true);
             Light.SetActive(false);
         }
         // Only check vertical if there is no horizontal movement
         else if (turnInput > 0.01f)
         {
             currentState = MovementState.Left;
-            Light.SetActive(false);
+            Light.SetActive(true);
+            Light2.SetActive(false);
         }
         else if (turnInput < -0.01f)
         {
             currentState = MovementState.Right;
+            Light2.SetActive(true);
             Light.SetActive(false);
         }
         else
         {
             currentState = MovementState.Idle;
             Light.SetActive(true);
+            Light2.SetActive(false);
         }
 
         if (currentState != previousState)
