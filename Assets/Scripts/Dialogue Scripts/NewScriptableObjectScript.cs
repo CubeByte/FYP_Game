@@ -39,6 +39,7 @@ public class NewScriptableObjectScript : ScriptableObject
         }
         return false;
     }
+    
     public void ResetWordPairList()
     {
         foreach (WordPair wordPair in wordPairList)

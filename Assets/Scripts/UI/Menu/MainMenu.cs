@@ -5,7 +5,15 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        Transition.Instance.LoadSceneWithMessage("Battle", "You get woken up by strange noises...");
+        if (SceneManager.GetSceneByName("Menu") != SceneManager.GetActiveScene())
+        {
+            Transition.Instance.LoadSceneWithFade("Menu");
+        }
+        
+        if (SceneManager.GetSceneByName("Menu") == SceneManager.GetActiveScene())
+        {
+            Transition.Instance.LoadSceneWithMessage("Battle","You get woken up by a noise");
+        }
     }
 
     public void QuitGame()

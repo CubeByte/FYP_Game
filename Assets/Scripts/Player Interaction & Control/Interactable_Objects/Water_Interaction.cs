@@ -1,5 +1,4 @@
 using CharacterData;
-using Combat_Action;
 using UnityEngine;
 
 public class Water_Interaction : MonoBehaviour, IInteractable
@@ -9,34 +8,41 @@ public class Water_Interaction : MonoBehaviour, IInteractable
     public Dialogue dialogue;
     public GameObject playerObject;
 
-    [Header("Player Data")]
+    [Header("Player Action Data")]
     public PlayerPersistantData playerPersistantData;
-    public int targetPlayerIndex = 0;
-    public int replaceActionSlot = 0;
-
-    [Header("Action Asset")]
     public CombatAction waterAction;
+    public int targetPlayerIndex = 0;
+    public bool autoEquipOnLearn = true;
+    public int autoEquipSlot = 0;
 
     private const int InitialStep = 1;
-    private const int LearnStep = 5;
+    private const int LearnStep = 3;
     private int interactionStep = InitialStep;
     
     public bool Interact(Interactor interactor)
     {
         if (!dialogueCanvas.isActiveAndEnabled)
         {
+            Debug.Log("Started conversation with " + name);
             OpenDialogue();
         }
         else
         {
+            Debug.Log("Continued conversation with " + name);
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
             
             if (interactionStep == LearnStep)
             {
                 NewScriptableObjectScript.setIsKnown("water");
-                
-                GiveWaterActionToPlayer();
-                
+                Debug.Log("learned water");
+
+                PlayerActionUtility.LearnAction(playerPersistantData, targetPlayerIndex, waterAction);
+
+                if (autoEquipOnLearn)
+                {
+                    PlayerActionUtility.EquipAction(playerPersistantData, targetPlayerIndex, autoEquipSlot, waterAction);
+                }
+
                 ExplorationPlayerState.Save(playerObject.transform);
                 Go_To_Battle_Interaction.LoadBattleFor(interactor, "First_Encounter");
             }
@@ -45,16 +51,6 @@ public class Water_Interaction : MonoBehaviour, IInteractable
         }
 
         return true;
-    }
-
-    void GiveWaterActionToPlayer()
-    {
-        CombatAction[] actions = playerPersistantData.characters[targetPlayerIndex].combatActions;
-
-        if (actions != null && replaceActionSlot >= 0 && replaceActionSlot < actions.Length)
-        {
-            actions[replaceActionSlot] = waterAction;
-        }
     }
 
     public void ResetInteraction()

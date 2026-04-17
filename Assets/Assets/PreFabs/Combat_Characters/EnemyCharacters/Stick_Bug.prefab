@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.4774691
       objectReference: {fileID: 0}
+    - target: {fileID: 1381278469547517188, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1630677293196393351, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -187,12 +191,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: maxHP
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: weakness
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: currentHP
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: displayName
-      value: Stick Bug
+      value: patyczak
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: weaknessMultiplier
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: combatActions.Array.size
@@ -261,6 +277,14 @@ PrefabInstance:
     - target: {fileID: 7479184154785564672, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 9.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418171439084806753, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418171439084806753, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

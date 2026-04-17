@@ -199,6 +199,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: immuneToNonWeaknessDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: 'combatActions.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 5e8083acbfffc694c99a71d71a2517a6, type: 2}

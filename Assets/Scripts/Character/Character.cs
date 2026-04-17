@@ -19,7 +19,11 @@ public class Character : MonoBehaviour
     public int currentHP;
     public int maxHP;
     public Archetype weakness;
+    public int weaknessMultiplier = 1;
 
+    [Header("Character Defense")]
+    public bool immuneToNonWeaknessDamage;
+    
     [Header("Persistent Mapping")]
     public int persistentIndex = -1;
     
@@ -67,20 +71,30 @@ public class Character : MonoBehaviour
         }
         combatAction.Cast(this, targetCharacter);
     }
-
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Archetype damageType)
     {
+        if (immuneToNonWeaknessDamage && damageType != weakness)
+        {
+            Debug.Log(displayName + " is immune to " + damageType);
+            return;
+        }
+
+        if (damageType == weakness)
+        {
+            damage *= weaknessMultiplier;
+        }
+
         currentHP -= damage;
-        characterUI.UpdateHealthBar(currentHP,maxHP);
-        
+        characterUI.UpdateHealthBar(currentHP, maxHP);
+
         damageFlash.Flash();
 
         if (currentHP <= 0)
         {
             Die();
         }
-        
-        Debug.Log("Target took " + damage + " damage");
+
+        Debug.Log(displayName + " took " + damage + " damage from " + damageType);
     }
 
     public void Heal(int heal)
@@ -92,8 +106,10 @@ public class Character : MonoBehaviour
             currentHP = maxHP;
         }
         
-        characterUI.UpdateHealthBar(currentHP,maxHP);
+        characterUI.UpdateHealthBar(currentHP, maxHP);
         Instantiate(healEffectPrefab, transform);
+
+        GameManager.instance.CheckTutorialFightHealWin(this);
     }
 
     public void Die()

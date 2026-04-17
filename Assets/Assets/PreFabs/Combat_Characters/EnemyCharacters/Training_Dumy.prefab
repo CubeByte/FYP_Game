@@ -82,6 +82,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1381278469547517188, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3769308585946377073, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.078024
@@ -134,7 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: displayName
-      value: Training Dummy
+      value: atrapa
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: weaknessMultiplier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6720062076599212056, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -203,6 +211,14 @@ PrefabInstance:
     - target: {fileID: 7226393939720418696, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418171439084806753, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418171439084806753, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

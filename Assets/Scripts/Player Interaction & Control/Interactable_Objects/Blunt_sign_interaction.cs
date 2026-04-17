@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CharacterData;
+using UnityEngine;
 
 namespace Player_Interaction___Control.Interactable_Objects
 {
@@ -12,6 +13,13 @@ namespace Player_Interaction___Control.Interactable_Objects
         private const int InitialStep = 1;
         private const int LearnStep = 4;
         private int interactionStep = InitialStep;
+        
+        [Header("Player Action Data")]
+        public PlayerPersistantData playerPersistantData;
+        public CombatAction bluntAction;
+        public int targetPlayerIndex = 0;
+        public bool autoEquipOnLearn = false;
+        public int autoEquipSlot = 0;
     
         public bool Interact(Interactor interactor)
         {
@@ -29,6 +37,13 @@ namespace Player_Interaction___Control.Interactable_Objects
                 {
                     NewScriptableObjectScript.setIsKnown("blunt");
                     Debug.Log("learned blunt");
+                    
+                    PlayerActionUtility.LearnAction(playerPersistantData, targetPlayerIndex, bluntAction);
+
+                    if (autoEquipOnLearn)
+                    {
+                        PlayerActionUtility.EquipAction(playerPersistantData, targetPlayerIndex, autoEquipSlot, bluntAction);
+                    }
                 }
                 interactionStep++;
             }

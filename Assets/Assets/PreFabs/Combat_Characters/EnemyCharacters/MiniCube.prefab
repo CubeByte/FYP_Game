@@ -181,10 +181,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: displayName
-      value: Slime
+      value: "\u015Bluz"
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: combatActions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: immuneToNonWeaknessDamage
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
@@ -242,6 +246,18 @@ PrefabInstance:
     - target: {fileID: 6720062076599212056, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226393939720418696, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418171439084806753, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418171439084806753, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

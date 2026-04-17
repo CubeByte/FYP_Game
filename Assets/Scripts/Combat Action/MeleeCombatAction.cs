@@ -14,14 +14,13 @@ public class MeleeCombatAction : CombatAction
     //deal damage to target
     void OnDamageTakenCallback(Character target)
     {
+        int damage = meleeDamage;
+/*
         if (target.weakness == archetype && wordList.WordIsKnown(target.weakness.ToString()))
         {
-            var weaknessDamage = meleeDamage * 2;
-            target.TakeDamage(weaknessDamage);
+            damage *= 2;
         }
-        else
-        {
-            target.TakeDamage(meleeDamage);
-        }
+*/
+        target.TakeDamage(damage, archetype);
     }
 }

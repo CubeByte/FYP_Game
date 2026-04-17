@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21875df2b71cb5d42a5ead35c77e6562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 4
   heal: 0
-  speed: 3
+  speed: 3.5
   archetype: 3
   wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
   spin: 1

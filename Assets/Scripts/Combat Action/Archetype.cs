@@ -4,7 +4,7 @@
     {
         slash,
         blunt,
-        peirce,
+        pierce,
         fire,
         water,
         magic,

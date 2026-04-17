@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d754f3f7651d7b48bc486ddf7c88d4c, type: 3}
   m_Name: Peirce_Action
   m_EditorClassIdentifier: 
-  displayName: Stab
+  displayName: Fling an Arrow
   description: Pierce an enemy
   archetype: 2
   wordList: {fileID: 11400000, guid: ddf8c4910d4dce8438a92ab833581b6c, type: 2}
-  projectilePrefab: {fileID: 919132149155446097, guid: 85b8bd83eb432ca4285b2614b8f4a224, type: 3}
+  projectilePrefab: {fileID: 6582982054659418159, guid: acde7641566622346bf7f74974cad94c, type: 3}

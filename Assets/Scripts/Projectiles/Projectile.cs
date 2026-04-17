@@ -34,11 +34,13 @@ public class Projectile : MonoBehaviour
     {
         if (damage > 0)
         {
+            /*
             if (target.weakness == archetype && wordList.WordIsKnown(target.weakness.ToString()))
             {
-                var weaknessDamage = damage * 2;
-                target.TakeDamage(weaknessDamage);
-            } else target.TakeDamage(damage);
+                damage *= 2;
+            } 
+            */
+            target.TakeDamage(damage, archetype);
         }
         if (heal > 0)
         {

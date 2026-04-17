@@ -18,10 +18,10 @@ public class Go_To_Battle_Interaction : MonoBehaviour, IInteractable
 
     public void LoadBattle(Interactor interactor)
     {
-        LoadBattle(interactor, battleSceneName);
+        LoadBattleFor(interactor, battleSceneName);
     }
 
-    public void LoadBattle(Interactor interactor, string sceneName)
+    public static void LoadBattleFor(Interactor interactor, string sceneName, string text)
     {
         if (interactor == null)
         {
@@ -30,7 +30,7 @@ public class Go_To_Battle_Interaction : MonoBehaviour, IInteractable
         }
 
         ExplorationPlayerState.Save(interactor.transform);
-        Transition.Instance.LoadSceneWithFade(sceneName);
+        Transition.Instance.LoadSceneWithMessage(sceneName, "You climb back to face the monsters...");
     }
 
     public static void LoadBattleFor(Interactor interactor, string sceneName = "Battle")

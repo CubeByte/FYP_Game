@@ -19,5 +19,9 @@ MonoBehaviour:
     combatActions:
     - {fileID: 11400000, guid: 3a8d01b32d1a8e245b1417ef35aa679d, type: 2}
     - {fileID: 11400000, guid: 56335e117fd953746aa58bbcb656b34d, type: 2}
-    - {fileID: 11400000, guid: e99cdd5583cb6ce4f9bb3dc1dbe2c9ff, type: 2}
+    - {fileID: 11400000, guid: 67286dd0776a2734a9188cbe5388038a, type: 2}
+    - {fileID: 11400000, guid: 67286dd0776a2734a9188cbe5388038a, type: 2}
+    unlockedActions:
+    - {fileID: 11400000, guid: 3a8d01b32d1a8e245b1417ef35aa679d, type: 2}
+    - {fileID: 11400000, guid: 56335e117fd953746aa58bbcb656b34d, type: 2}
     - {fileID: 11400000, guid: 67286dd0776a2734a9188cbe5388038a, type: 2}

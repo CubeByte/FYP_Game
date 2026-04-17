@@ -9,17 +9,19 @@ namespace Player_Interaction___Control.Interactable_Objects
         public string InteractionPrompt { get; }
         public Canvas dialogueCanvas;
         public Dialogue dialogue;
+        public GameObject playerObject;
 
         [Header("Player Data")]
         public PlayerPersistantData playerPersistantData;
         public int targetPlayerIndex = 0;
-        public int replaceActionSlot = 0;
+        public bool autoEquipOnLearn = true;
+        public int autoEquipSlot = 0;
 
         [Header("Action Asset")]
         public CombatAction healAction;
         
         private const int InitialStep = 1;
-        private const int LearnStep = 4;
+        private const int LearnStep = 5;
         private int interactionStep = InitialStep;
         
         public bool Interact(Interactor interactor)
@@ -38,8 +40,20 @@ namespace Player_Interaction___Control.Interactable_Objects
                 {
                     NewScriptableObjectScript.setIsKnown("heal");
                     Debug.Log("learned Heal");
+                    
+                }
+                if (interactionStep == 7)
+                {
+                    PlayerActionUtility.LearnAction(playerPersistantData, targetPlayerIndex, healAction);
 
-                    GiveHealActionToPlayer();
+                    if (autoEquipOnLearn)
+                    {
+                        PlayerActionUtility.EquipAction(playerPersistantData, targetPlayerIndex, autoEquipSlot, healAction);
+                    }
+                    
+                    ExplorationPlayerState.Save(playerObject.transform);
+                    Go_To_Battle_Interaction.LoadBattleFor(interactor, "Tutorial_Fight",
+                        "You get overcome with a weird sensation...");
                 }
                 interactionStep++;
             }
@@ -53,16 +67,6 @@ namespace Player_Interaction___Control.Interactable_Objects
             if (dialogueCanvas != null)
             {
                 dialogueCanvas.enabled = false;
-            }
-        }
-        
-        void GiveHealActionToPlayer()
-        {
-            CombatAction[] actions = playerPersistantData.characters[targetPlayerIndex].combatActions;
-
-            if (actions != null && replaceActionSlot >= 0 && replaceActionSlot < actions.Length)
-            {
-                actions[replaceActionSlot] = healAction;
             }
         }
 

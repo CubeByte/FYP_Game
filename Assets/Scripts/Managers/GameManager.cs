@@ -70,7 +70,14 @@ namespace Managers
                     Character character = CreateCharacter(prefab, playerTeamSpawns[playerSpawnIndex]);
 
                     character.persistentIndex = i;
-                    character.currentHP = playerData.characters[i].health;
+                    if (currentScene.name == "Tutorial_Fight")
+                    {
+                        character.currentHP = 1;
+                    }
+                    else
+                    {
+                        character.currentHP = playerData.characters[i].health;
+                    }
                     character.combatActions = playerData.characters[i].combatActions != null
                         ? (CombatAction[])playerData.characters[i].combatActions.Clone()
                         : new CombatAction[0];
@@ -115,7 +122,8 @@ namespace Managers
                 }
             }
 
-            if (enemiesRemaining == 0)
+            // Normal battles only
+            if (currentScene.name != "Tutorial_Fight" && enemiesRemaining == 0)
             {
                 PayerTeamWins();
             }
@@ -139,7 +147,7 @@ namespace Managers
 
             if (currentScene.name == "Battle")
             {
-                Transition.Instance.LoadSceneWithFade("Exploration_Zone");
+                Transition.Instance.LoadSceneWithMessage("Exploration_Zone","Your first loss, you fall down the cliff...");
             }
             else
             {
@@ -159,7 +167,7 @@ namespace Managers
                 if (playerTeam[i] != null && playerTeam[i].persistentIndex >= 0)
                 {
                     int index = playerTeam[i].persistentIndex;
-
+                    
                     playerPersistantData.characters[index].health = playerTeam[i].currentHP;
                     playerPersistantData.characters[index].isDead = false;
                     playerPersistantData.characters[index].combatActions = playerTeam[i].combatActions != null
@@ -184,18 +192,30 @@ namespace Managers
                 }
             }
         }
-        
-        void LoadMapScene()
-        {
-            MapManager.instance.mapData.IncrementEncounter();
-            SceneManager.LoadScene("Map");
-        }
 
         public void LoadMenuScene()
         {
             playerPersistantData.ResetCharacters();
             MapManager.instance.mapData.ResetEncounter();
             Transition.Instance.LoadSceneWithFade("Menu");
+        }
+        
+        public void CheckTutorialFightHealWin(Character character)
+        {
+            if (currentScene.name != "Tutorial_Fight")
+                return;
+
+            if (character == null)
+                return;
+
+            if (character.team != Character.Team.Player)
+                return;
+
+            if (character.currentHP >= character.maxHP)
+            {
+                UpdatePlayerPersistantData();
+                Transition.Instance.LoadSceneWithFade("Exploration_Zone");
+            }
         }
     }
 }
