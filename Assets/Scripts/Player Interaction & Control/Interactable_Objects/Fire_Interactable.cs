@@ -30,9 +30,11 @@ namespace Player_Interaction___Control.Interactable_Objects
                 {
                     NewScriptableObjectScript.setIsKnown("fire");
                     Debug.Log("learned fire");
-                    
+                }
+
+                if (interactionStep == 4)
+                {
                     ExplorationPlayerState.Save(playerObject.transform);
-                    
                     Go_To_Battle_Interaction.LoadBattleFor(interactor, "Second_Encounter", "You and the stick bug Prepare for a steamy fight");
                 }
                 interactionStep++;

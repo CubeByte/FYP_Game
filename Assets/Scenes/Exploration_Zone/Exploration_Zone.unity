@@ -1179,10 +1179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   sentences:
-  - Oh hey!!!
-  - "There used to be ogie\u0144 here but not anymore"
-  - Could you warm me up?
-  - "You have learnt the word for ogie\u0144..."
+  - '"Oh hey!!!"'
+  - "\"There used to be *ogie\u0144* here but not anymore\""
+  - '"Could you warm me up?"'
+  - "You have learned the word for *ogie\u0144*..."
 --- !u!114 &202156708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2035,12 +2035,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   sentences:
-  - '*woda bloOO@op woda*'
-  - '*bubble woda bubble*'
+  - '"*woda* bloOO@op *woda*"'
+  - '"bubble *woda* bubble"'
   - Looks like a gelatinous creature?!
-  - Seems afrade of the water
-  - You have learnt the word woda...
-  - You splash some watter on the slime,,,
+  - Seems to be afraid of the water
+  - You have learnt the word *woda*...
+  - You splash some water on the slime...
 --- !u!114 &303703271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,7 +2060,7 @@ MonoBehaviour:
   waterAction: {fileID: 11400000, guid: 5a44758b4e463964ead27abc98b1c4bb, type: 2}
   targetPlayerIndex: 0
   autoEquipOnLearn: 1
-  autoEquipSlot: 2
+  autoEquipSlot: 3
 --- !u!1 &307781750
 GameObject:
   m_ObjectHideFlags: 0
@@ -8985,10 +8985,10 @@ MonoBehaviour:
   name: 
   sentences:
   - A poetic sign?!
-  - "\"to przebi\u0107 or not to przebi\u0107, that is the question to be asked\""
+  - "\"to *przebi\u0107* or not to *przebi\u0107*, that is the question to be asked\""
   - Your brain is too smooth to understand the context of this sign
   - "You will do a bold assumption that the arrows have przebi\u0107 the target.."
-  - "przebi\u0107 means pierce!!! you are a genius.."
+  - "*przebi\u0107* means pierce!!! you are a genius.."
   - Might aswell test out your hypothesis
 --- !u!65 &977860779
 BoxCollider:
@@ -10222,7 +10222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   sentences:
-  - "From this you will learn blunt or t\u0119py..."
+  - "From this you will learn blunt or *t\u0119py*..."
   - Why? cuz that is your state right now...
   - Not all words you learn will teach you a skill.
   - Not all interactions will result in a fight...
@@ -11531,9 +11531,9 @@ MonoBehaviour:
   name: 
   sentences:
   - 'A rack of swords with a notice '
-  - "\"For recruits: swords are for dealing tn\u0105cy damage\""
-  - Every noob knows what swords are used for.. *phhh*
-  - "You assume tn\u0105cy means slash as what els can you do with a sword..."
+  - "For recruits: \"swords are for dealing *tn\u0105cy* damage\""
+  - Every noob knows what swords are used for..
+  - "You assume *tn\u0105cy* means slash as what else can you do with a sword..."
 --- !u!65 &1383594798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13149,9 +13149,9 @@ MonoBehaviour:
   - Goal of the game is to interact with Objects
   - From interaction you will learn Vocabulary
   - This will give you abilities in certain encounters
-  - "From this interaction you will learn: Heal or \r\nLeczy\u0107"
-  - To view your learnt vocab open the Log top left of your screen.
-  - "The word Leczy\u0107 will teach you a new skill, try it out..."
+  - "From this interaction you will learn: Heal or \r\n*Leczy\u0107*"
+  - To view your learned vocab open the Log top left of your screen.
+  - "The word *Leczy\u0107* will teach you a new skill, try it out..."
 --- !u!64 &1575950230
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13883,10 +13883,10 @@ MonoBehaviour:
   sentences:
   - A sign stuck in a stone?!
   - 'Written on the sign is:'
-  - "A \u015Bwi\u0119ty site... gotta be..."
+  - "A *\u015Bwi\u0119ty* site... gotta be..."
   - Is this a refrence to something?
   - You see a cross etched on the stone...
-  - "\u015Bwi\u0119ty might mean holy but your not certain..."
+  - "*\u015Bwi\u0119ty* might mean holy but your not certain..."
 --- !u!65 &1633722323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16733,7 +16733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff61e5b98a485b409d1028e92a678e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleSceneName: Final_Battle
 --- !u!1 &2037265871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 522406e9a455d864ab080ba033e1694b, type: 3}

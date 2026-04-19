@@ -111,6 +111,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 80707175046683341, guid: 50a89aa56cac52048a8b7d22d2699804, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160841138879986149, guid: 50a89aa56cac52048a8b7d22d2699804, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7895653856271401228, guid: 50a89aa56cac52048a8b7d22d2699804, type: 3}
       propertyPath: m_Name
       value: BossCube Variant Variant_2

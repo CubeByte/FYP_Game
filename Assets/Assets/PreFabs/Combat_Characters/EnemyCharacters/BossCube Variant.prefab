@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2925368186302922259, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3769308585946377073, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.12120223
@@ -173,6 +177,10 @@ PrefabInstance:
     - target: {fileID: 4905751757569385938, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: m_Name
       value: BossCube Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397053367058570555, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866396222274788034, guid: 41374bef8b8897d468a8220d6b66fefd, type: 3}
       propertyPath: team

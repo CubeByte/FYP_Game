@@ -35,7 +35,9 @@ public class NewScriptableObjectScript : ScriptableObject
         foreach (WordPair wordPair in wordPairList)
         {
             if (word == wordPair.English && wordPair.IsKnown)
+            {
                 return true;
+            }
         }
         return false;
     }

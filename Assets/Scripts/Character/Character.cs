@@ -79,7 +79,7 @@ public class Character : MonoBehaviour
             return;
         }
 
-        if (damageType == weakness)
+        if (damageType == weakness && WordListPrefab.WordIsKnown(weakness.ToString()))
         {
             damage *= weaknessMultiplier;
         }

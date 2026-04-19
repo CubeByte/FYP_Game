@@ -42,7 +42,9 @@ public class Water_Interaction : MonoBehaviour, IInteractable
                 {
                     PlayerActionUtility.EquipAction(playerPersistantData, targetPlayerIndex, autoEquipSlot, waterAction);
                 }
-
+            }
+            if (interactionStep == 6)
+            {
                 ExplorationPlayerState.Save(playerObject.transform);
                 Go_To_Battle_Interaction.LoadBattleFor(interactor, "First_Encounter");
             }
